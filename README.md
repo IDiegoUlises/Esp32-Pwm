@@ -17,8 +17,8 @@ void setup(){
   
   // attach the channel to the GPIO to be controlled
   ledcAttachPin(ledPin, ledChannel);
-  ledcAttachPin(ledPin2, ledChannel);
-  ledcAttachPin(ledPin3, ledChannel);
+  //ledcAttachPin(ledPin2, ledChannel);
+  //ledcAttachPin(ledPin3, ledChannel);
 }
  
 void loop(){
