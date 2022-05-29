@@ -1,9 +1,6 @@
 # Esp32-Pwm
 Genera una señal cuadrada, modulacion por ancho de pulso
 
-* Informacion no verificada
-* Tiene 16 puertos para crear 16 señales pwm pero la verdad que nose se tendria que verificar
-* No son 16 puertos son 16 canales y cada puerto de salida se puede utilizar para crear una señal pwm
 * 0 a 15 canales disponibles en total 16 canales
 * Frecuencia minima y maxima 1 minima y maxima 40.000 khz
 * Resolucion se pueden elegir de 1-16
