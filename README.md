@@ -63,4 +63,35 @@ void loop()
   }
 }
 ```
-### El problema de usar el mismo canal, es que siempre todos los led de todo el canal van a tener la misma señal pwm 
+### El problema de usar el mismo canal, es que siempre todos los led de todo el canal van a tener la misma señal pwm la solucion utilizar otro canal
+```c++
+int frecuencia = 5000; //1-40.000 khz
+int canal = 0; //0-15 canales
+int canal2 = 1;
+int resolucion = 8; //1-16 bits
+int ledPin = 23; //pin donde esta el led
+int ledPin2 = 22;
+
+void setup()
+{
+  //Configuracion inicial
+  ledcSetup(canal, frecuencia, resolucion);
+  //ledcSetup(canal2, frecuencia, resolucion); //No se deben declarar dos veces es un error solamente se puede hacer una declaracion
+
+  //Se selecciona el pin y el canal
+  ledcAttachPin(ledPin, canal);
+  ledcAttachPin(ledPin2, canal2);
+}
+
+void loop()
+{
+  //Pin del canal 2 encendido siempre
+  ledcWrite(canal2, 255); 
+  
+  for (int ciclo = 0; ciclo <= 255; ciclo++)
+  {
+    ledcWrite(canal, ciclo);
+    delay(10);
+  }
+}
+```
