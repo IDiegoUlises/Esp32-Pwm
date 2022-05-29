@@ -6,6 +6,7 @@ Genera una señal cuadrada, modulacion por ancho de pulso
 * No son 16 puertos son 16 canales y cada puerto de salida se puede utilizar para crear una señal pwm
 * 0 a 15 canales disponibles en total 16 canales
 * Frecuencia minima y maxima 1 minima y maxima 40.000 khz
+* La resolucion 8 signfica 8 bit que es de 0-255 0v y 255 son 3v
 
 ```c++
 // setting PWM properties
