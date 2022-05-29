@@ -8,6 +8,7 @@ Genera una señal cuadrada, modulacion por ancho de pulso
 * Frecuencia minima y maxima 1 minima y maxima 40.000 khz
 * Resolucion se pueden elegir de 1-16
 * La resolucion 8 signfica 8 bit que es de 0-255
+* d35(gpio35),d34(gpio34),vn(gpio39),vp(gpio36) no funcionan como salida como output estos puertos sirven solamente como entradas
 
 ```c++
 // setting PWM properties
