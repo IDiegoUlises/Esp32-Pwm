@@ -11,27 +11,26 @@ Genera una señal cuadrada, modulacion por ancho de pulso
 * Todo los puertos pueden funcionar como salidas pwm excepto los pines d35(gpio35),d34(gpio34),vn(gpio39),vp(gpio36) que sirven solamente como entradas
 
 ```c++
-// setting PWM properties
-const int freq = 5000;
-const int ledChannel = 0;
-const int resolution = 8;
- 
-void setup(){
-  // configure LED PWM functionalitites
-  ledcSetup(ledChannel, freq, resolution);
-  
-  // attach the channel to the GPIO to be controlled
-  ledcAttachPin(ledPin, ledChannel);
-  //ledcAttachPin(ledPin2, ledChannel);
-  //ledcAttachPin(ledPin3, ledChannel);
+int frecuencia = 5000; //1-40.000 khz
+int canal = 0; //0-15 canales
+int resolucion = 8; //1-16 bits
+int ledPin = 23; //pin donde esta el led
+
+void setup()
+{
+  //Configuracion inicial
+  ledcSetup(canal, frecuencia, resolucion);
+
+  //Se selecciona el pin y el canal
+  ledcAttachPin(ledPin, canal);
 }
- 
-void loop(){
-  // increase the LED brightness
-  for(int dutyCycle = 0; dutyCycle <= 255; dutyCycle++){   
-    // changing the LED brightness with PWM
-    ledcWrite(ledChannel, dutyCycle);
-    delay(15);
+
+void loop()
+{
+  for (int ciclo = 0; ciclo <= 255; ciclo++)
+  {
+    ledcWrite(canal, ciclo);
+    delay(10);
   }
-  }
+}
 ```
