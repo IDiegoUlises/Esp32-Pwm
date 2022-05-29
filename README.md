@@ -34,3 +34,33 @@ void loop()
   }
 }
 ```
+### Para agregar otro led simplemente se le agrega 
+* Se agrega esta linea ```ledcAttachPin(ledPin2, canal); ```
+
+```c++
+int frecuencia = 5000; //1-40.000 khz
+int canal = 0; //0-15 canales
+int resolucion = 8; //1-16 bits
+int ledPin = 23; //pin donde esta el led
+int ledPin2 = 22;
+
+void setup()
+{
+  //Configuracion inicial
+  ledcSetup(canal, frecuencia, resolucion);
+
+  //Se selecciona el pin y el canal
+  ledcAttachPin(ledPin, canal);
+  ledcAttachPin(ledPin2, canal);
+}
+
+void loop()
+{
+  for (int ciclo = 0; ciclo <= 255; ciclo++)
+  {
+    ledcWrite(canal, ciclo);
+    delay(10);
+  }
+}
+```
+### El problema de usar el mismo canal, es que siempre todos los led de todo el canal van a tener la misma señal pwm 
